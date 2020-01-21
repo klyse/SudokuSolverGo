@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"reflect"
+	"strings"
 )
 
 func check(e error) {
@@ -19,6 +20,11 @@ func main() {
 	fmt.Print(string(dat) + "\n")
 
 	fmt.Println(reflect.TypeOf(dat))
+
+	split := strings.Split(string(dat), "\n")
+
+	println(string(split[0]))
+	return
 
 	var sudoku [9][9]int
 
