@@ -16,7 +16,8 @@ func main() {
 	dat, err := ioutil.ReadFile("./sudokus/s.txt")
 	check(err)
 
-	s := Sudoku.New(dat)
+	sudoku := new(Sudoku)
+	sudoku.Parse(dat)
 
 	fmt.Println(reflect.TypeOf(dat))
 

@@ -9,8 +9,7 @@ type Sudoku struct {
 	s [9][9]int
 }
 
-func New(byteArray []byte) Sudoku {
-	e := Sudoku{}
+func (e Sudoku) Parse(byteArray []byte) Sudoku {
 	var fullStr = string(byteArray)
 	fullStr = strings.Replace(fullStr, " ", "", -1)
 	fullStr = strings.Replace(fullStr, ".", "0", -1)
