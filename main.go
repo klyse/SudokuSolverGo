@@ -13,30 +13,16 @@ func check(e error) {
 }
 
 func main() {
-	dat, err := ioutil.ReadFile("./sudokus/sudoku.txt")
+	dat, err := ioutil.ReadFile("./sudokus/s.txt")
 	check(err)
+
+	sudoku := new(Sudoku)
+	sudoku.Parse(dat)
+
+	fmt.Println(reflect.TypeOf(dat))
 
 	fmt.Print(string(dat) + "\n")
 
 	fmt.Println(reflect.TypeOf(dat))
 
-	var sudoku [9][9]int
-
-	var sudokuIdx int = 0
-	for i := 0; i < len(dat); i++ {
-		if string(dat[i]) == "\n" || string(dat[i]) == " " {
-			continue
-		}
-
-		sudokuIdx++
-		print(string(dat[i]))
-
-		if string(dat[i]) == "." {
-			sudoku[sudokuIdx/9][sudokuIdx%9] = 0
-		} else{
-			sudoku[sudokuIdx/9][sudokuIdx%9] = int(dat[i])
-		}
-	}
-
-	fmt.Println(sudoku[0][1])
 }
