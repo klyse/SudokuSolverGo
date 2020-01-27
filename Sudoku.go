@@ -11,7 +11,7 @@ type Sudoku struct {
 	s [9][9]int
 }
 
-func (e Sudoku) Parse(byteArray []byte) Sudoku {
+func (e Sudoku) Parse(byteArray []byte) {
 	var fullStr = string(byteArray)
 	fullStr = strings.Replace(fullStr, " ", "", -1)
 	fullStr = strings.Replace(fullStr, ".", "0", -1)
@@ -22,7 +22,6 @@ func (e Sudoku) Parse(byteArray []byte) Sudoku {
 			e.s[i][y], _ = strconv.Atoi(string(r))
 		}
 	}
-	return e
 }
 
 func (e Sudoku) Solve() {
@@ -53,11 +52,13 @@ func GetPossibleCombinations(s [9][9]int, cnt int) []int {
 	}
 
 	var possNr = make([]int, 0, 9)
-	append(possNr, 1)
+
+	possNr = append(possNr, 0)
 
 	for i := 1; i < len(nrAr); i++ {
-		if nrAr[i] == false
-			append(possNr, 1)
+		if !nrAr[i] {
+			possNr = append(possNr, i)
+		}
 	}
 
 	return possNr
