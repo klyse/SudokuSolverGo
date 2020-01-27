@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"github.com/jinzhu/copier"
 	"strconv"
 	"strings"
 )
@@ -21,4 +23,50 @@ func (e Sudoku) Parse(byteArray []byte) Sudoku {
 		}
 	}
 	return e
+}
+
+func (e Sudoku) Solve() {
+	SolveRec(e.s, 0)
+}
+
+func GetPossibleCombinations(s [9][9]int, cnt int) []int {
+	x := cnt % 9
+	y := cnt / 9
+
+	var nrAr = make([]bool, 10)
+
+	for i := 0; i < 9; i++ {
+		nrAr[s[x][i]] = true
+	}
+
+	for i := 0; i < 9; i++ {
+		nrAr[s[x][i]] = true
+	}
+
+	sqBeginX := x / 3 * 3
+	sqBeginY := y / 3 * 3
+
+	for i1 := sqBeginX; i1 < sqBeginX+3; i1++ {
+		for i2 := sqBeginY; i2 < sqBeginY+3; i2++ {
+			nrAr[s[i1][i2]] = true
+		}
+	}
+
+	var possNr = make([]int, 0, 9)
+	append(possNr, 1)
+
+	for i := 1; i < len(nrAr); i++ {
+		if nrAr[i] == false
+			append(possNr, 1)
+	}
+
+	return possNr
+}
+
+func SolveRec(s [9][9]int, cnt int) {
+	var exec [][]int
+	copier.Copy(&s, &exec)
+
+	comb := GetPossibleCombinations(s, cnt)
+	fmt.Println(len(comb))
 }
