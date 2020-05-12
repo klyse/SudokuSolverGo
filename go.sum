@@ -1,0 +1,4 @@
+github.com/bradhe/stopwatch v0.0.0-20190618212248-a58cccc508ea h1:+GIgqdjrcKMHK1JqC1Bb9arFtNOGX/SWCkueobreyQU=
+github.com/bradhe/stopwatch v0.0.0-20190618212248-a58cccc508ea/go.mod h1:P/j2DSP/kCOakHBACzMqmOdrTEieqdSiB3U9fqk7qgc=
+github.com/jinzhu/copier v0.0.0-20190924061706-b57f9002281a h1:zPPuIq2jAWWPTrGt70eK/BSch+gFAGrNzecsoENgu2o=
+github.com/jinzhu/copier v0.0.0-20190924061706-b57f9002281a/go.mod h1:yL958EeXv8Ylng6IfnvG4oflryUi3vgA3xPs9hmII1s=

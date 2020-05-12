@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/bradhe/stopwatch"
 	"io/ioutil"
 )
 
@@ -15,6 +16,16 @@ func main() {
 	sudoku.Parse(dat)
 
 	fmt.Println("Input:")
-	fmt.Print(string(dat) + "\n")
-	sudoku.Solve()
+	fmt.Println(ToString(sudoku.s))
+	fmt.Println("____________")
+
+	stopWatch := stopwatch.Start()
+	solve, err := sudoku.Solve()
+	stopWatch.Stop()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("Output (in %dms):\n", stopWatch.Milliseconds())
+	fmt.Println(ToString(solve))
 }
