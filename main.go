@@ -2,27 +2,30 @@ package main
 
 import (
 	"fmt"
+	"github.com/bradhe/stopwatch"
 	"io/ioutil"
-	"reflect"
 )
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 func main() {
-	dat, err := ioutil.ReadFile("./sudokus/s.txt")
-	check(err)
+	dat, err := ioutil.ReadFile("./sudokus/sudoku.txt")
+	if err != nil {
+		panic(err)
+	}
 
 	sudoku := new(Sudoku)
 	sudoku.Parse(dat)
 
-	fmt.Println(reflect.TypeOf(dat))
+	fmt.Println("Input:")
+	fmt.Println(ToString(sudoku.s))
+	fmt.Println("____________")
 
-	fmt.Print(string(dat) + "\n")
+	stopWatch := stopwatch.Start()
+	solve, err := sudoku.Solve()
+	stopWatch.Stop()
+	if err != nil {
+		panic(err)
+	}
 
-	fmt.Println(reflect.TypeOf(dat))
-
+	fmt.Printf("Output (in %dms):\n", stopWatch.Milliseconds())
+	fmt.Println(ToString(solve))
 }
