@@ -16,7 +16,9 @@ func (e *Sudoku) Parse(byteArray []byte) {
 	var fullStr = string(byteArray)
 	fullStr = strings.Replace(fullStr, " ", "", -1)
 	fullStr = strings.Replace(fullStr, ".", "0", -1)
-	split := strings.Split(fullStr, "\r\n")
+	fullStr = strings.Replace(fullStr, "\r\n", "\n", -1)
+	fullStr = strings.Replace(fullStr, "\r", "\n", -1)
+	split := strings.Split(fullStr, "\n")
 
 	for i, v := range split {
 		for y, r := range v {
