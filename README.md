@@ -1,4 +1,6 @@
 # SudokuSolverGo
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fklyse%2FSudokuSolverGo.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fklyse%2FSudokuSolverGo?ref=badge_shield)
+
 
 A simple Sudoku solver to learn Go.
 
@@ -29,3 +31,6 @@ Output (in 9ms):
 315 697 824
 728 543 691
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fklyse%2FSudokuSolverGo.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fklyse%2FSudokuSolverGo?ref=badge_large)
